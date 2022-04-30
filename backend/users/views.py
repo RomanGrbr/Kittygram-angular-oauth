@@ -7,7 +7,7 @@ import requests
 from .serializers import CreateUserSerializer
 
 
-CLIENT_ID = "gpfU8x8BZp3sZ2OhWkXe1bJOdoaNagvGoqTGhrgv"
+CLIENT_ID = "lGK1fDPcyZLwgKzbcDJIHms2PNmBQTNsgKhjWUdD"
 
 
 @api_view(['POST'])
@@ -21,6 +21,7 @@ def register(request):
                     'grant_type': 'password',
                     'username': request.data['username'],
                     'password': request.data['password'],
+                    'email': request.data['email'],
                     'client_id': CLIENT_ID,
                }
         data = requests.post(url=url, data=params)
