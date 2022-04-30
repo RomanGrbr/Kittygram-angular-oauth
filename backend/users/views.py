@@ -6,7 +6,6 @@ import requests
 
 from .serializers import CreateUserSerializer
 
-
 CLIENT_ID = "lGK1fDPcyZLwgKzbcDJIHms2PNmBQTNsgKhjWUdD"
 
 

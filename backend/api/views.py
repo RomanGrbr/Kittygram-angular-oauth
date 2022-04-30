@@ -1,10 +1,9 @@
 from django.contrib.auth import get_user_model
 from rest_framework import viewsets, filters
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.permissions import IsAdminUser
 
 from .models import Cat
-from .permissions import AdminUserOrReadOnly
+from .permissions import OwnerOnly
 from .serializers import CatSerializer
 
 User = get_user_model()
@@ -13,7 +12,7 @@ User = get_user_model()
 class CatViewSet(viewsets.ModelViewSet):
     queryset = Cat.objects.all()
     serializer_class = CatSerializer
-    permission_classes = (IsAdminUser,)
+    permission_classes = (OwnerOnly,)
     filter_backends = (DjangoFilterBackend, filters.SearchFilter,
                        filters.OrderingFilter)
     filterset_fields = ('color', 'birth_year')

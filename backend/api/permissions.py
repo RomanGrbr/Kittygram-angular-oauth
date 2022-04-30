@@ -1,6 +1,9 @@
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework import permissions
 
 
-class AdminUserOrReadOnly(IsAuthenticatedOrReadOnly):
+class OwnerOnly(permissions.BasePermission):
     def has_permission(self, request, view):
-        return request.user.is_authenticated or request.user.is_staff
+        return request.user.is_authenticated
+
+    def has_object_permission(self, request, view, obj):
+        return obj.owner == request.user
