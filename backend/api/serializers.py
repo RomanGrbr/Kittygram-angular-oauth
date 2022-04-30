@@ -26,7 +26,7 @@ class CatSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Cat
-        fields = ('id', 'owner', 'name', 'color', 'birth_year', 'age')
+        fields = ('id', 'owner', 'name', 'color', 'birth_year', 'age', 'breed')
         read_only_fields = ('owner',)
 
         validators = [

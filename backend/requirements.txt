@@ -5,10 +5,13 @@ charset-normalizer==2.0.12
 cryptography==37.0.1
 Deprecated==1.2.13
 Django==4.0.4
+django-cors-headers==3.11.0
+django-filter==21.1
 django-oauth-toolkit==2.0.0
 djangorestframework==3.13.1
 idna==3.3
 jwcrypto==1.2
+mysqlclient==2.1.0
 oauthlib==3.2.0
 pycparser==2.21
 pytz==2022.1
@@ -16,4 +19,5 @@ requests==2.27.1
 sqlparse==0.4.2
 tzdata==2022.1
 urllib3==1.26.9
+webcolors==1.11.1
 wrapt==1.14.0

@@ -15,9 +15,9 @@ class CatViewSet(viewsets.ModelViewSet):
     permission_classes = (OwnerOnly,)
     filter_backends = (DjangoFilterBackend, filters.SearchFilter,
                        filters.OrderingFilter)
-    filterset_fields = ('color', 'birth_year')
+    filterset_fields = ('color', 'birth_year', 'breed')
     search_fields = ('^name',)
-    ordering_fields = ('name', 'birth_year')
+    ordering_fields = ('name', 'birth_year', 'breed')
     ordering = ('birth_year',)
 
     def perform_create(self, serializer):

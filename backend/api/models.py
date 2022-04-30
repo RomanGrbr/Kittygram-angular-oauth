@@ -10,6 +10,7 @@ class Cat(models.Model):
     name = models.CharField(max_length=16)
     color = models.CharField(max_length=30)
     birth_year = models.IntegerField()
+    breed = models.CharField(max_length=30)
 
     class Meta:
         constraints = [

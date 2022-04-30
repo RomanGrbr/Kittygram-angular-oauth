@@ -6,7 +6,7 @@ import requests
 
 from .serializers import CreateUserSerializer
 
-CLIENT_ID = "lGK1fDPcyZLwgKzbcDJIHms2PNmBQTNsgKhjWUdD"
+CLIENT_ID = "OvPkebUzM23ooKvioxJjS09Ae9UVF7shs28soWi0"
 
 
 @api_view(['POST'])
