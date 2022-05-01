@@ -1,0 +1,77 @@
+<div class="list row">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by name"
+          [(ngModel)]="name"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchName()"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col-md-6">
+      <h4>Cats List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let cat of cats; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveCat(cat, i)"
+        >
+          {{ cat.name }}
+        </li>
+      </ul>
+      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllCats()">
+        Remove All
+      </button>
+    </div> -->
+    <div class="col-md-6">
+      <div *ngIf="currentCat">
+        <h4>Cat</h4>
+        <div>
+          <label><strong>Name:</strong></label> 
+          {{ currentCat.name }}
+        </div>
+        <div>
+          <label><strong>Color:</strong></label>
+          {{ currentCat.color }}
+        </div>
+        <div>
+          <label><strong>Birth year:</strong></label>
+          {{ currentCat.birth_year }}
+        </div>
+        <div>
+          <label><strong>Breed:</strong></label>
+          {{ currentCat.breed }}
+        </div>
+        <div>
+          <label><strong>Owner:</strong></label>
+          {{ currentCat.owner }}
+        </div>
+        <div>
+          <label><strong>Age:</strong></label>
+          {{ currentCat.age }}
+        </div>
+        <!-- <div>
+          <label><strong>Status:</strong></label>
+          {{ currentTutorial.published ? "Published" : "Pending" }}
+        </div> -->
+        <a class="badge badge-warning" href="/cats/{{ currentCat.id }}">
+          Edit
+        </a>
+      </div>
+      <div *ngIf="!currentCat">
+        <br />
+        <p>Please click on a Cat...</p>
+      </div>
+    </div>
+  </div>

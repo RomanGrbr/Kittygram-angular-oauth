@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+# import pymysql
+# pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,8 +29,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY'),
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -49,14 +49,35 @@ INSTALLED_APPS = [
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'
-CORS_ORIGIN_ALLOW_ALL = True
+
+
+ALLOWED_HOSTS = ['localhost']
+# CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ALLOW_CREDENTIALS=True
 CORS_URLS_REGEX = r'^/api/.*$'
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8001',
+)
+CORS_ALLOW_METHODS = ('DELETE', 'GET', 'OPTIONS', 'PATCH', 'POST', 'PUT',)
+CORS_ALLOW_HEADERS = (
+    'accept', 
+    'accept-encoding', 
+    'authorization', 
+    'content-type', 
+    'dnt', 
+    'origin', 
+    'user-agent',
+    'x-csrftoken', 
+    'x-requested-with', 
+    'Access-Control-Allow-Origin',
+    'x-www-form-urlencoded',
+    )
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'oauth2_provider.middleware.OAuth2TokenMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -101,7 +122,7 @@ DATABASES = {
 #         'NAME': os.getenv('DB_NAME', default='kittygram'),
 #         'USER': os.getenv('DB_USER', default='mysql'),
 #         'PASSWORD': os.getenv('DB_PASSWORD', default='mysql'),
-#         'HOST': os.getenv('DB_HOST', default='localhost'),
+#         'HOST': os.getenv('DB_HOST', default='127.0.0.1'),
 #         'PORT': os.getenv('DB_PORT', default='3306'),
 #     }
 # }
