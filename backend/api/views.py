@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
-from rest_framework import viewsets, filters
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters, viewsets
 
 from .models import Cat
 from .permissions import OwnerOnly

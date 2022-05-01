@@ -1,7 +1,8 @@
+import datetime as dt
+
+import webcolors
 from rest_framework import serializers
 from rest_framework.validators import UniqueTogetherValidator
-import webcolors
-import datetime as dt
 
 from .models import Cat
 
